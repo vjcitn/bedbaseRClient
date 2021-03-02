@@ -1,0 +1,27 @@
+---
+title: "bedbaseRClient: illustrative operations on bedbase.org"
+author: "Vincent J. Carey, stvjc at channing.harvard.edu"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{bedbaseRClient: illustrative operations on bedbase.org}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    highlight: pygments
+    number_sections: yes
+    theme: united
+    toc: yes
+---
+
+# Introduction
+
+[bedbase.org]("https://bedbase.org") assembles genomic data on many
+thousands of region-based scoring files.  See the [about page for bedbase.org](http://bedbase.org/about)
+for details.
+
+This package explores the resource using Bioconductor/R.
+
+# A basic query
+
+We'll find out about resources related to the GM12878 cell line.

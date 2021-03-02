@@ -1,0 +1,26 @@
+Package: bedbaseRClient
+Title: an R client for bedbase.org
+Version: 0.0.0
+Authors@R: 
+    c(person(
+        "Vincent", "Carey", role = c("aut", "cre"),
+        email = "stvjc@channing.harvard.edu"
+     )
+    )
+Description: Prototype the interrogation of bedbase.org metadata and data using R and Bioconductor.
+License: Artistic-2.0
+Encoding: UTF-8
+Depends: R (>= 3.6), dplyr
+Imports:
+    methods,
+    tibble,
+    BiocManager,
+    hca,
+    httr
+Suggests: knitr, testthat
+LazyData: true
+VignetteBuilder: knitr
+biocViews: Infrastructure
+RoxygenNote: 7.1.1
+Remotes:
+    bioconductor/hca
