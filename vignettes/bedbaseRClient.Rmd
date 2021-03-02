@@ -8,11 +8,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 output:
   BiocStyle::html_document:
-    highlight: pygments
     number_sections: yes
-    theme: united
-    toc: yes
 ---
+
+```{r setup,echo=FALSE}
+suppressMessages({
+suppressPackageStartupMessages({
+library(bedbaseRClient)
+library(httr)
+library(hca)
+})
+})
+```
 
 # Introduction
 
@@ -20,8 +27,40 @@ output:
 thousands of region-based scoring files.  See the [about page for bedbase.org](http://bedbase.org/about)
 for details.
 
-This package explores the resource using Bioconductor/R.
+This package explores the resource using Bioconductor/R.  We'll use interesting
+facilities of the hca package to explore JSON outputs of the bedbase API.
 
 # A basic query
 
 We'll find out about resources related to the GM12878 cell line.
+
+## Metadata acquisition
+
+The `get_bb_metadata` function is very simple.  We'll learn how
+to vary the types of data retrieved later on.  One could question
+whether 'GM12878' is a 'cell type' and we will examine this concept another time.
+
+```{r lk1}
+library(bedbaseRClient)
+q1 = get_bb_metadata(query_type="cell_type", query_val="GM12878")
+q1
+cc = httr::content(q1)
+names(cc[[1]][[2]])
+```
+
+## Metadata exploration
+
+The content returned by the API is complex.  The hca package can help navigate.
+
+```{r lk2}
+library(hca)
+lcc = lol(cc) # list of lists
+lol_path(lcc)
+```
+
+With `lol_pull`, we can extract the content present along a given structural path.
+
+```{r lk3}
+exps = lol_pull(lcc, "[*][*].exp_protocol")
+table(exps)
+```

@@ -1,6 +1,6 @@
 Package: bedbaseRClient
 Title: an R client for bedbase.org
-Version: 0.0.0
+Version: 0.0.1
 Authors@R: 
     c(person(
         "Vincent", "Carey", role = c("aut", "cre"),
