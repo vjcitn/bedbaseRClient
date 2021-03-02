@@ -17,6 +17,7 @@ suppressPackageStartupMessages({
 library(bedbaseRClient)
 library(httr)
 library(hca)
+library(TFutils)
 })
 })
 ```
@@ -63,4 +64,22 @@ With `lol_pull`, we can extract the content present along a given structural pat
 ```{r lk3}
 exps = lol_pull(lcc, "[*][*].exp_protocol")
 table(exps)
+```
+
+That's informative.  Let's check how many targets are transcription factors.
+We'll use the Lambert table in the TFutils package.
+
+```{r lk4}
+library(TFutils)
+lam = retrieve_lambert_main()
+targs = lol_pull(lcc, "[*][*].target")
+length(intersect(targs, lam$Name))
+```
+
+We can pivot to a different cell type as follows:
+```{r lk5}
+q2 = get_bb_metadata(query_type="cell_type", query_val="K562")
+kk = httr::content(q2)
+ktargs = lol_pull(lol(kk), "[*][*].target")
+length(intersect(ktargs, lam$Name))
 ```
