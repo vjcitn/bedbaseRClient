@@ -1,0 +1,16 @@
+url: https://vjcitn.github.io/bedbaseRClient
+
+template:
+  params:
+    bootswatch: flatly
+
+home:
+  title: "bedbaseRClient: interacting with bedbase.org using Bioconductor/R"
+  type: inverse
+
+
+navbar:
+  right:
+   - icon: fa-github
+     href: https://github.com/vjcitn/bedbaseRClient
+
