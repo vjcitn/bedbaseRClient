@@ -51,6 +51,8 @@ names(cc[[1]][[2]])
 
 ## Metadata exploration
 
+### Illustration with known fields and values
+
 The content returned by the API is complex.  The hca package can help navigate.
 
 ```{r lk2}
@@ -82,4 +84,23 @@ q2 = get_bb_metadata(query_type="cell_type", query_val="K562")
 kk = httr::content(q2)
 ktargs = lol_pull(lol(kk), "[*][*].target")
 length(intersect(ktargs, lam$Name))
+```
+
+### Enumerating available cell types
+
+We'll use the API to acquire 50 metadata records.  Cell type
+information is in an API component called `other`.
+```{r lk50}
+fixc = function(x) ifelse(is.null(x), NA_character_, x)
+ctcheck = httr::GET("http://bedbase.org/api/bed/all/data?ids=md5sum&ids=other&limit=50")
+ddl = lol(httr::content(ctcheck))
+types = vapply(lol_pull(ddl, "data[*]")[seq(2,100,2)], function(x) x[["cell_type"]], character(1))
+abs = vapply(lol_pull(ddl, "data[*]")[seq(2,100,2)], function(x) fixc(x[["antibody"]]), character(1))
+targs = vapply(lol_pull(ddl, "data[*]")[seq(2,100,2)], function(x) fixc(x[["target"]]), character(1))
+exps = vapply(lol_pull(ddl, "data[*]")[seq(2,100,2)], function(x) fixc(x[["exp_protocol"]]), character(1))
+```
+The md5sum component is used for direct file access.
+```{r getmds}
+mds = unlist(lol_pull(ddl, "data[*]")[seq(1,100,2)])
+DT::datatable(data.frame(types, exps, abs, targs, mds))
 ```
