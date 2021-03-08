@@ -1,6 +1,6 @@
 Package: bedbaseRClient
 Title: an R client for bedbase.org
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     c(person(
         "Vincent", "Carey", role = c("aut", "cre"),
@@ -16,11 +16,15 @@ Imports:
     tibble,
     BiocManager,
     hca,
-    httr
+    httr,
+    RCurl,
+    rtracklayer,
+    GenomicRanges
 Suggests: knitr, testthat, TFutils
 LazyData: true
 VignetteBuilder: knitr
 biocViews: Infrastructure
 RoxygenNote: 7.1.1
 Remotes:
-    bioconductor/hca
+    bioconductor/hca,
+    sanchit-saini/rtracklayer

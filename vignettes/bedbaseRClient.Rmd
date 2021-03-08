@@ -86,7 +86,7 @@ ktargs = lol_pull(lol(kk), "[*][*].target")
 length(intersect(ktargs, lam$Name))
 ```
 
-### Enumerating available cell types
+### Enumerating available experiments
 
 We'll use the API to acquire 50 metadata records.  Cell type
 information is in an API component called `other`.
