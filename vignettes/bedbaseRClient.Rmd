@@ -18,6 +18,7 @@ library(bedbaseRClient)
 library(httr)
 library(hca)
 library(TFutils)
+library(dplyr)
 })
 })
 ```
@@ -102,5 +103,15 @@ exps = vapply(lol_pull(ddl, "data[*]")[seq(2,100,2)], function(x) fixc(x[["exp_p
 The md5sum component is used for direct file access.
 ```{r getmds}
 mds = unlist(lol_pull(ddl, "data[*]")[seq(1,100,2)])
-DT::datatable(data.frame(types, exps, abs, targs, mds))
+tab50 = data.frame(celltype=types, expt=exps, Ab=abs, targ=targs, md5=mds)
+DT::datatable(tab50)
+```
+
+## A targeted query
+
+```{r lkqq}
+sel = tab50 |> filter(expt=="TF ChIP-seq", 
+    celltype=="HEK293", targ=="TRIM28") |> 
+    select(md5) |> as.character()
+query_bb(sel, which=GenomicRanges::GRanges("chr17:38000000-39000000"))
 ```

@@ -20,7 +20,7 @@ Imports:
     RCurl,
     rtracklayer,
     GenomicRanges
-Suggests: knitr, testthat, TFutils
+Suggests: knitr, testthat, TFutils, dplyr
 LazyData: true
 VignetteBuilder: knitr
 biocViews: Infrastructure
