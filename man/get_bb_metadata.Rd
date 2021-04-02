@@ -20,5 +20,9 @@ q
 if (interactive()) {
   md = get_bb_metadata()
   md # use httr::content,...
+  cont = httr::content(md)
+  list(len=length(cont), # GM12878
+       nm=cont[[2]][[1]],
+       fields=names(cont[[2]][[2]]))
 }
 }

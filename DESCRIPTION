@@ -1,6 +1,6 @@
 Package: bedbaseRClient
 Title: an R client for bedbase.org
-Version: 0.0.4
+Version: 0.0.6
 Authors@R: 
     c(person(
         "Vincent", "Carey", role = c("aut", "cre"),
@@ -13,12 +13,11 @@ Encoding: UTF-8
 Depends: R (>= 4.1), dplyr
 Imports:
     methods,
-    hca,
     httr,
     RCurl,
     rtracklayer,
     GenomicRanges
-Suggests: knitr, testthat, TFutils, dplyr, DT
+Suggests: knitr, testthat, TFutils, dplyr, DT, hca
 LazyData: true
 VignetteBuilder: knitr
 biocViews: Infrastructure

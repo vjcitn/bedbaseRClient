@@ -17,6 +17,10 @@ metadata_query_builder = function(token1="cell_type", query_val="GM12878") {
 #' if (interactive()) {
 #'   md = get_bb_metadata()
 #'   md # use httr::content,...
+#'   cont = httr::content(md)
+#'   list(len=length(cont), # GM12878
+#'        nm=cont[[2]][[1]],
+#'        fields=names(cont[[2]][[2]]))
 #' }
 #' @export
 get_bb_metadata = function(query_type="cell_type", query_val="GM12878") {
@@ -45,8 +49,7 @@ redirect_handler <- function(url) {
 }
 
 build_bb_query = function(md5sum="78c0e4753d04b238fc07e4ebe5a02984") {
-    init = paste("http://bedbase.org/api/bed/", md5sum, "/file/bigbedfile", sep="")
-    redirect_handler(init)
+    paste("http://dev1.bedbase.org/api/bed/", md5sum, "/file/bigbedfile", sep="")
 }
 #' query a bedbase bigbed file
 #' @importFrom RCurl getURL
