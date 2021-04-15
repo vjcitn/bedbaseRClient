@@ -109,9 +109,9 @@ DT::datatable(tab50)
 
 ## A targeted query
 
-```{r lkqq}
-sel = tab50 |> filter(expt=="TF ChIP-seq", 
-    celltype=="HEK293", targ=="TRIM28") |> 
-    select(md5) |> as.character()
-query_bb(sel, which=GenomicRanges::GRanges("chr17:38000000-39000000"))
+```{r lkqq, eval=TRUE}
+sel = tab50 |> filter(expt=="ChiPseq", 
+    celltype=="GM12878", Ab=="IKZF1") |> 
+    select(md5) 
+query_bb(sel[1,1], which=GenomicRanges::GRanges("chr17:38000000-39000000"))
 ```

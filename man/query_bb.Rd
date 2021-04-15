@@ -11,6 +11,9 @@ query_bb(md5sum, ...)
 
 \item{\dots}{passed to rtracklayer::import.bb, which will have format="bigBed" set}
 }
+\value{
+GRanges
+}
 \description{
 query a bedbase bigbed file
 }

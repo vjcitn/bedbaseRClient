@@ -1,6 +1,6 @@
 Package: bedbaseRClient
 Title: an R client for bedbase.org
-Version: 0.0.6
+Version: 0.0.7
 Authors@R: 
     c(person(
         "Vincent", "Carey", role = c("aut", "cre"),
@@ -23,5 +23,4 @@ VignetteBuilder: knitr
 biocViews: Infrastructure
 RoxygenNote: 7.1.1
 Remotes:
-    bioconductor/hca,
-    sanchit-saini/rtracklayer
+    bioconductor/hca

@@ -1,6 +1,7 @@
 #' very speculative approach to creating a query
 #' @param token1 character(1) defaults to "cell_type"
 #' @param query_val character(1) defaults to "GM12878" could be any supported cell type or line tag
+#' @return character()
 metadata_query_builder = function(token1="cell_type", query_val="GM12878") {
   t1 = "http://bedbase.org/_private_api/query/bedfiles/other-%3E%3E%27"
   t2 = "%27%3D%25s?query_val="
@@ -12,6 +13,7 @@ metadata_query_builder = function(token1="cell_type", query_val="GM12878") {
 #' @param query_type character(1) defaults to "cell_type"
 #' @param query_val character(1) defaults to "GM12878"
 #' @examples
+#' @return output of httr::GET
 #' q = bedbaseRClient:::metadata_query_builder()
 #' q
 #' if (interactive()) {
@@ -34,7 +36,7 @@ redirect_handler <- function(url) {
 #
     tryCatch(
         expr = {
-            response <- RCurl::getURL(url, header = T)
+            response <- RCurl::getURL(url, header = TRUE)
             headers <- strsplit(response, "\r\n")[[1]]
             position <- grep("location:", headers)
             redirected_url <- sub("location: ", "", headers[position])
@@ -53,8 +55,11 @@ build_bb_query = function(md5sum="78c0e4753d04b238fc07e4ebe5a02984") {
 }
 #' query a bedbase bigbed file
 #' @importFrom RCurl getURL
+#' @import GenomicRanges
+#' @import methods
 #' @param md5sum character(1) md5sum used as key into bedbase resources
 #' @param \dots passed to rtracklayer::import.bb, which will have format="bigBed" set
+#' @return GRanges
 #' @examples
 #' b1 = query_bb(md5sum="78c0e4753d04b238fc07e4ebe5a02984", 
 #'     which=GenomicRanges::GRanges("chr17:37000000-39000000"))

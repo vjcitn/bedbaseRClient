@@ -2,4 +2,6 @@
 
 export(get_bb_metadata)
 export(query_bb)
+import(GenomicRanges)
+import(methods)
 importFrom(RCurl,getURL)

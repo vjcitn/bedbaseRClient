@@ -11,10 +11,8 @@ get_bb_metadata(query_type = "cell_type", query_val = "GM12878")
 
 \item{query_val}{character(1) defaults to "GM12878"}
 }
-\description{
-metadata query submitter
-}
-\examples{
+\value{
+output of httr::GET
 q = bedbaseRClient:::metadata_query_builder()
 q
 if (interactive()) {
@@ -25,4 +23,7 @@ if (interactive()) {
        nm=cont[[2]][[1]],
        fields=names(cont[[2]][[2]]))
 }
+}
+\description{
+metadata query submitter
 }

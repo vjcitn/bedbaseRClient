@@ -11,6 +11,9 @@ metadata_query_builder(token1 = "cell_type", query_val = "GM12878")
 
 \item{query_val}{character(1) defaults to "GM12878" could be any supported cell type or line tag}
 }
+\value{
+character()
+}
 \description{
 very speculative approach to creating a query
 }
