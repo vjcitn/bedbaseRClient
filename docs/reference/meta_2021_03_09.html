@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • bedbaseRClient</title>
+<title>metadata table for encode components of bedbase — meta_2021_03_09 • bedbaseRClient</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="metadata table for encode components of bedbase — meta_2021_03_09" />
+<meta property="og:description" content="metadata table for encode components of bedbase" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -108,60 +109,63 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>metadata table for encode components of bedbase</h1>
+    
+    <div class="hidden name"><code>meta_2021_03_09.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>metadata table for encode components of bedbase</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='va'>meta_2021_03_09</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="get_bb_metadata.html">get_bb_metadata()</a></code> </p>
-        </td>
-        <td><p>metadata query submitter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="meta_2021_03_09.html">meta_2021_03_09</a></code> </p>
-        </td>
-        <td><p>metadata table for encode components of bedbase</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="metadata_query_builder.html">metadata_query_builder()</a></code> </p>
-        </td>
-        <td><p>very speculative approach to creating a query</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="query_bb.html">query_bb()</a></code> </p>
-        </td>
-        <td><p>query a bedbase bigbed file</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>data.frame</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>A column "cell_type_onto" was added, after searching UBERON, Cell Ontology, Cell Line Ontology
+for exact matches (module 'cell' in Cell Line Ontology), using ontoProc images in Bioc 3.12.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>meta_2021_03_09</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "md5sum"         "sample_name"    "file_name"      "genome"        
+#&gt;  [5] "exp_protocol"   "cell_type"      "target"         "data_source"   
+#&gt;  [9] "file_acc"       "format"         "format_type"    "description"   
+#&gt; [13] "cell_type_onto"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>meta_2021_03_09</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                             md5sum sample_name          file_name genome
+#&gt; 1 8ff1591e21c370133fbdbd544d850b7a    encode_1 ENCFF003QKM.bed.gz   hg38
+#&gt; 2 b7c93b26aa70bdda10ad0c1f7adc67e5    encode_2 ENCFF850BBV.bed.gz   hg38
+#&gt; 3 6a49ac34d6926a8ae6623ee3ac566048    encode_3 ENCFF488KZB.bed.gz   hg38
+#&gt; 4 665650f5fe8db5a78733127f72e62695    encode_4 ENCFF452DAM.bed.gz   hg38
+#&gt; 5 948ca6b287b4b9c17d5cdbe00ef0cfb1    encode_5 ENCFF805AOR.bed.gz   hg38
+#&gt; 6 91c2f7ceb852450b1d9a162f5175d57c    encode_6 ENCFF899YUP.bed.gz   hg38
+#&gt;       exp_protocol                cell_type   target data_source    file_acc
+#&gt; 1 Histone ChIP-seq skeletal muscle myoblast H3K36me3      ENCODE ENCFF003QKM
+#&gt; 2 Histone ChIP-seq skeletal muscle myoblast H3K36me3      ENCODE ENCFF850BBV
+#&gt; 3 Histone ChIP-seq skeletal muscle myoblast H3K36me3      ENCODE ENCFF488KZB
+#&gt; 4 Histone ChIP-seq skeletal muscle myoblast H3K36me3      ENCODE ENCFF452DAM
+#&gt; 5      TF ChIP-seq                     K562    RBBP5      ENCODE ENCFF805AOR
+#&gt; 6      TF ChIP-seq                     K562    RBBP5      ENCODE ENCFF899YUP
+#&gt;   format format_type
+#&gt; 1    bed  narrowPeak
+#&gt; 2    bed  narrowPeak
+#&gt; 3    bed  narrowPeak
+#&gt; 4    bed  narrowPeak
+#&gt; 5    bed  narrowPeak
+#&gt; 6    bed  narrowPeak
+#&gt;                                                   description cell_type_onto
+#&gt; 1 H3K36me3 Histone ChIP-seq on human skeletal muscle myoblast     CL:0000515
+#&gt; 2 H3K36me3 Histone ChIP-seq on human skeletal muscle myoblast     CL:0000515
+#&gt; 3 H3K36me3 Histone ChIP-seq on human skeletal muscle myoblast     CL:0000515
+#&gt; 4 H3K36me3 Histone ChIP-seq on human skeletal muscle myoblast     CL:0000515
+#&gt; 5                             RBBP5 TF ChIP-seq on human K562           &lt;NA&gt;
+#&gt; 6                             RBBP5 TF ChIP-seq on human K562           &lt;NA&gt;</div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

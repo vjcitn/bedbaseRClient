@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bedbaseRClient</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8</span>
       </span>
     </div>
 
@@ -135,15 +135,19 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>q</span> <span class='op'>=</span> <span class='fu'>bedbaseRClient</span><span class='fu'>:::</span><span class='fu'><a href='metadata_query_builder.html'>metadata_query_builder</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>q</span>
-</div><div class='output co'>#&gt; [1] "http://bedbase.org/_private_api/query/bedfiles/other-%3E%3E%27cell_type%27%3D%25s?query_val=GM12878&amp;columns=name&amp;columns=other"</div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>md</span> <span class='op'>=</span> <span class='fu'>get_bb_metadata</span><span class='op'>(</span><span class='op'>)</span>
-  <span class='va'>md</span> <span class='co'># use httr::content,...</span>
-<span class='op'>}</span>
-</div></pre>
+    <p>output of httr::GET
+q = bedbaseRClient:::metadata_query_builder()
+q
+if (interactive()) 
+  md = get_bb_metadata()
+  md # use httr::content,...
+  cont = httr::content(md)
+  list(len=length(cont), # GM12878
+       nm=cont[[2]][[1]],
+       fields=names(cont[[2]][[2]]))</p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
