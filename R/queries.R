@@ -51,7 +51,7 @@ redirect_handler <- function(url) {
 }
 
 build_bb_query = function(md5sum="78c0e4753d04b238fc07e4ebe5a02984") {
-    paste("http://dev1.bedbase.org/api/bed/", md5sum, "/file/bigbedfile", sep="")
+    paste("http://bedbase.org/api/bed/", md5sum, "/file/bigBed", sep="")
 }
 #' query a bedbase bigbed file
 #' @importFrom RCurl getURL
