@@ -1,9 +1,9 @@
-pandoc: '2.5'
+pandoc: '2.13'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   bedbaseRClient: bedbaseRClient.html
-last_built: 2021-04-15T10:42Z
+last_built: 2021-06-09T16:02Z
 urls:
   reference: https://vjcitn.github.io/bedbaseRClient/reference
   article: https://vjcitn.github.io/bedbaseRClient/articles
